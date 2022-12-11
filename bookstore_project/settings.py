@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig', # new
+    'users.apps.UsersConfig', # new
 ]
 
 MIDDLEWARE = [
@@ -51,6 +52,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookstore_project.urls'
+
+LOGIN_REDIRECT_URL = 'home'  #NEW
+LOGOUT_REDIRECT_URL = 'home' # new
+
 
 TEMPLATES = [
     {
