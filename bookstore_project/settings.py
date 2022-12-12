@@ -41,7 +41,18 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig', # new
     # Third-party
     'crispy_forms', # new
+
+    'allauth', # new
+    'allauth.account', # new
+
+    
 ]
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+'django.contrib.auth.backends.ModelBackend',
+'allauth.account.auth_backends.AuthenticationBackend', # new
+)
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # new
 # django-crispy-forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # new
 
@@ -56,9 +67,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'bookstore_project.urls'
+ACCOUNT_SESSION_REMEMBER = True # new
+ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False # new
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+ACCOUNT_USERNAME_REQUIRED = False # new
+ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
+ACCOUNT_EMAIL_REQUIRED = True # new
+ACCOUNT_UNIQUE_EMAIL = True # new
 
-LOGIN_REDIRECT_URL = 'home'  #NEW
-LOGOUT_REDIRECT_URL = 'home' # new
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
