@@ -75,7 +75,8 @@ ACCOUNT_USERNAME_REQUIRED = False # new
 ACCOUNT_AUTHENTICATION_METHOD = 'email' # new
 ACCOUNT_EMAIL_REQUIRED = True # new
 ACCOUNT_UNIQUE_EMAIL = True # new
-
+SECRET_KEY = os.environ.get('SECRET_KEY')
+DEBUG = int(os.environ.get('DEBUG', default=0))
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
