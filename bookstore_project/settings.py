@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages.apps.PagesConfig', # new
     'users.apps.UsersConfig', # new
+    'sites.apps.SitesConfig', # new
     # Third-party
     'crispy_forms', # new
 
@@ -77,6 +78,11 @@ ACCOUNT_EMAIL_REQUIRED = True # new
 ACCOUNT_UNIQUE_EMAIL = True # new
 SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = int(os.environ.get('DEBUG', default=0))
+DEFAULT_FROM_EMAIL = 'info@fixenix.com'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
