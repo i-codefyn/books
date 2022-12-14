@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig', # new
     'users.apps.UsersConfig', # new
     'sites.apps.SitesConfig', # new
+    'books.apps.BooksConfig', # new
     # Third-party
     'crispy_forms', # new
 
