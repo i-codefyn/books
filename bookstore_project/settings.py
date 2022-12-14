@@ -84,6 +84,12 @@ DEFAULT_FROM_EMAIL = 'info@fixenix.com'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
 
 
+#media settings
+
+MEDIA_URL = '/media/' # new
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
+
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
