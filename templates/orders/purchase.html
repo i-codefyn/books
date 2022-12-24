@@ -1,0 +1,17 @@
+{% extends '_base.html' %}
+{% block title %}Orders{% endblock title %}
+{% block content %}
+<h1>Orders page</h1>
+<p>Buy for $39.00</p>
+<form action="{% url 'charge' %}" method="post">
+    {% csrf_token %}
+<script src="https://checkout.razorpay.com/v1/payment-button.js"
+ data-payment_button_id="pl_K6JilOQERRCdAx" async
+
+data-key="{{ razorpay_key }}"  class="btn payment-button"
+data-description="All Books"
+data-amount="3900"
+data-locale="auto">
+</script>
+</form>
+{% endblock content %}

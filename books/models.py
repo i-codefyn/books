@@ -16,8 +16,8 @@ class Book(models.Model):
 
    class Meta: # new
      permissions = [
-('special_status', 'Can read all books'),
-]
+     ('special_status', 'Can read all books'),
+     ]
 
 
    def __str__(self):
