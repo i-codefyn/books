@@ -15,6 +15,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
+#heroku 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
@@ -86,6 +91,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware', # new
     'django.middleware.cache.FetchFromCacheMiddleware', # new
+    'whitenoise.middleware.WhiteNoiseMiddleware', # new
 ]
 
 #chachig setting
