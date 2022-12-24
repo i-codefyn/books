@@ -15,6 +15,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
+
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 #debug setting
 import socket
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
@@ -33,9 +36,10 @@ RAZORPAY_KEY_SECRET = 'qtKSYK2ONRu9iNstut4hhqCj'
 SECRET_KEY = 'django-insecure-wk*lmufqselhc&pz@c97*grxt7-sx-(t8owuvwjtq3!7h%y$@7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
-ALLOWED_HOSTS = []
+
 
 
 # Application definition
@@ -194,3 +198,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+if ENVIRONMENT == 'production':
+    SECURE_BROWSER_XSS_FILTER = True # new
+    X_FRAME_OPTIONS = 'DENY'
+    SECURE_SSL_REDIRECT = True
+    SECURE_HSTS_SECONDS = 3600
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SESSION_COOKIE_SECURE = True # new
+    CSRF_COOKIE_SECURE = True # new
+    

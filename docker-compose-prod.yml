@@ -1,15 +1,18 @@
 version: "4.1"
 
+
+
 services:
   web:
     build: .
     command: python /books/manage.py runserver 0.0.0.0:8000
     environment:
-      - ENVIRONMENT=development
+      - ENVIRONMENT=production
       - SECRET_KEY=p_o3vp1rg5)t^lxm9-43%0)s-=1qpeq%o7gfq+e4#*!t+_ev82
-      - DEBUG=1
+      - DEBUG=0
       - RAZORPAY_KEY_ID = 'rzp_live_y4lUUCW4dMTSwc'
       - RAZORPAY_KEY_SECRET = 'qtKSYK2ONRu9iNstut4hhqCj'
+      
       
     volumes:
       - .:/books
