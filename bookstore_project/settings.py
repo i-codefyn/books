@@ -149,10 +149,10 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "books_j8lx",
-        "USER": "myname",
-        "PASSWORD": "rf9s0Acfej5AuwC1VBmxW2DK5xaqgeMo",
-        "HOST": "dpg-ceo4nd5a4991ihgcvj9g-a",  # set in docker-compose.yml
+        "NAME": "railway",
+        "USER": "postgres",
+        "PASSWORD": "odEZw5WcY0JuyVkwh6E2",
+        "HOST": "containers-us-west-123.railway.app",  # set in docker-compose.yml
         "PORT": 5432,  # default postgres port
     }
 }
