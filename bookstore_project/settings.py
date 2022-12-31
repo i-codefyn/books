@@ -15,14 +15,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import os
 
-#heroku 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
-
-ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 #debug setting
 import socket
 hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
@@ -42,7 +35,7 @@ SECRET_KEY = 'django-insecure-wk*lmufqselhc&pz@c97*grxt7-sx-(t8owuvwjtq3!7h%y$@7
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 
 
@@ -216,3 +209,12 @@ if ENVIRONMENT == 'production':
     SESSION_COOKIE_SECURE = True # new
     CSRF_COOKIE_SECURE = True # new
     
+#heroku 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+
+ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
+ALLOWED_HOSTS = ['www.render.com','www.railway.app', 'render.com', 
+'railway.com', 'localhost', '127.0.0.1']
