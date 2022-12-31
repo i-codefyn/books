@@ -147,11 +147,14 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-   'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgresql://postgres:postgres@localhost:5432/books',
-        conn_max_age=600
-    )
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "books_j8lx",
+        "USER": "myname",
+        "PASSWORD": "rf9s0Acfej5AuwC1VBmxW2DK5xaqgeMo",
+        "HOST": "dpg-ceo4nd5a4991ihgcvj9g-a",  # set in docker-compose.yml
+        "PORT": 5432,  # default postgres port
+    }
 }
 
 # Password validation
