@@ -1,7 +1,7 @@
 databases:
   - name: books
-    databaseName: postgres
-    user: postgres
+    databaseName: books_j8lx
+    user: myname
 
 services:
   - type: web
