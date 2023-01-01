@@ -216,5 +216,4 @@ DATABASES['default'].update(db_from_env)
 
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
-ALLOWED_HOSTS = ['www.render.com','www.railway.app', 'render.com', 
-'railway.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
