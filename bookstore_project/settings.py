@@ -149,10 +149,10 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
+        "NAME": "railway",
         "USER": "postgres",
-        "PASSWORD": "postgres",
-        "HOST": "db",  # set in docker-compose.yml
+        "PASSWORD": "odEZw5WcY0JuyVkwh6E2",
+        "HOST": "containers-us-west-123.railway.app",  # set in docker-compose.yml
         "PORT": 5432,  # default postgres port
     }
 }
@@ -216,5 +216,6 @@ DATABASES['default'].update(db_from_env)
 
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
-ALLOWED_HOSTS = ['www.render.com','www.railway.app', 'render.com', 
-'railway.com', 'localhost', '127.0.0.1']
+app = application
+
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
