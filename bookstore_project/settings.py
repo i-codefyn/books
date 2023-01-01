@@ -115,8 +115,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # new
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
+
 STATICFILES_FINDERS = [
 "django.contrib.staticfiles.finders.FileSystemFinder",
 "django.contrib.staticfiles.finders.AppDirectoriesFinder",
@@ -146,16 +150,6 @@ WSGI_APPLICATION = 'bookstore_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "railway",
-        "USER": "postgres",
-        "PASSWORD": "odEZw5WcY0JuyVkwh6E2",
-        "HOST": "containers-us-west-123.railway.app",  # set in docker-compose.yml
-        "PORT": 5432,  # default postgres port
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -209,15 +203,14 @@ if ENVIRONMENT == 'production':
     SESSION_COOKIE_SECURE = True # new
     CSRF_COOKIE_SECURE = True # new
     
-#heroku 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
 
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 
 
-ALLOWED_HOSTS = ['*']
+
+
+
 
