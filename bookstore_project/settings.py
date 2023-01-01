@@ -216,6 +216,8 @@ DATABASES['default'].update(db_from_env)
 
 
 ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
-app = application
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
+
+
+ALLOWED_HOSTS = ['*']
+
